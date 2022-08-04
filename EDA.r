@@ -141,8 +141,9 @@ boxplot(df1$ws ~ reorder(format(df1$Date,'%b %y'),df1$Date),
 boxplot(df1$temp ~ reorder(format(df1$Date,'%b %y'),df1$Date), 
         outline = FALSE, col='darkorange') 
 
-  # c. Polar Frequency plot
-# Plot wind speed and direction using package
+  # c. NO2 Polar Frequency plot
+# Plot wind speed and direction using PolarFreq from Openair library
+# Weighted radar plot, w/ wind speed and NO2 concentration in direction of wind 
 # 1. Seasonal plot
 polarFreq(df1, pollutant = "NO2", type = "season", statistic = "mean", min.bin = 2)
 # 2. 2020 plot
