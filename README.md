@@ -15,7 +15,7 @@ For Master's of Data Science dissertation
 
 ####################
 
-▶︎ 2020 Datasets: AURN, TfGM, ECMWF, DfT 
+2020 Datasets: AURN, TfGM, ECMWF, DfT 
 
 ▶︎ AURN: 
   
@@ -37,7 +37,9 @@ For Master's of Data Science dissertation
   ▷ Department for Transport
   ▷ Annual average daily traffic count for 17935 site 
 
-▶︎ STEPS: 
+####################
+
+STEPS: 
 
 ▶︎ Exploratory Data Analysis (EDA)
 
