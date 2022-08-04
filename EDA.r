@@ -92,8 +92,10 @@ min(df2$NO2, na.rm=TRUE)
 ####################
 # 3. Visualisation #
   # a. NO2 
+
 # Timeseries line #
 plot.ts(df1$NO2, col=rgb(0.1,0.1,0.7,0.5))
+
 # Autocorrelation #
 # Install and load tseries library 
 # Source: https://cran.r-project.org/web/packages/tseries/index.html
@@ -102,11 +104,22 @@ library(tseries)
 # include pl=FALSE to show table // include pl=TRUE to show plot
 # set lag to be # hours inspecting
 # acf = autocorrelation function
-# plot 96 hour lag (4 days)
+# plot 96 hour lag (4 days) - random day
 acf(df1$NO2, na.action = na.pass, lag=96, main='NO2 Autocorrelation', pl=TRUE) 
+# plot 96 hour lag (4 days) - march and november 
+# subset dataframe
+df_nov <- df1[df1$Month == 'November', ]
+df_mar <- df1[df1$Month == 'March', ]
+# plot
+par(mfrow=c(1,2))    # set the plotting area into a 1*2 array
+ac_mar <- acf(df_mar$NO2, na.action = na.pass, lag=96, main='March', pl=FALSE) 
+ac_nov <- acf(df_nov$NO2, na.action = na.pass, lag=96, main='November', pl=FALSE) 
+
+# Partial Autocorrelation # 
 # pacf = partial autocorrelation function
 # plot 24 hour lag (1 day)
-# pacf(df1$NO2, na.action = na.pass, lag=24, main='Partial Autocorrelation', pl=TRUE) 
+pacf(df1$NO2, na.action = na.pass, lag=24, main='Partial Autocorrelation', pl=TRUE) 
+
 
   # b. Boxplot
 # Using boxplot
