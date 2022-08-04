@@ -7,6 +7,9 @@ For Master's of Data Science dissertation
   City Centre in response to the COVID19 lock-down "
 
 
+▶︎ Using Python, R and Terminal 
+
+
 ▶︎ 2020 Datasets: AURN, TfGM, ECMWF, DfT 
 
 ▶︎ AURN: 
@@ -38,4 +41,4 @@ For Master's of Data Science dissertation
 ▶︎ And XGBoost model building and testing 
 
 
--> Using Python, R and Terminal 
+
