@@ -2,9 +2,12 @@
 # Exploring AURN, TFGM, ECMWF data
 # Using R 
 ###########
-  # Set wd
+ # Set wd
 setwd("/.")
-  # Install necessary packages #
+
+# Install necessary packages #
+# Packages need to be installed only once
+
 # corrplot package 
 # source: https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html
 install.packages("corrplot")
@@ -14,6 +17,11 @@ install.packages("openair")
 library(openair)
 # correlation matrix plot
 source("http://www.sthda.com/upload/rquery_cormat.r")
+# pairplot
+install.packages("ggplot2")            
+install.packages("GGally")
+library("ggplot2")                     
+library("GGally")   
 
 ###########
 # 1. Descriptive statistics #
@@ -23,7 +31,7 @@ source("http://www.sthda.com/upload/rquery_cormat.r")
 # ECMWF (msl)
  
 # Read data as dataframe 
-df1 <- read.csv(file='MAN_PIC_2020.csv')
+df1 <- read.csv(file='MAN_DATA_2020.csv')
 
 #  Convert to date if not already
 df1$Date <- as.Date(df1$date)
@@ -151,7 +159,21 @@ polarFreq(df1, pollutant = "NO2", type = "year", statistic = "mean", min.bin = 2
 
   # d. Correlation Matrix
 # plot for every variable
-df2 <- df1[c('O3','NO','NO2','NOXasNO2','SO2','PM10','PM2.5','wd','ws','temp', 'Traffic', 'msl')]
+df2 <- df1[c('O3','NO','NO2','NOXasNO2','SO2','PM10','PM2.5','wd','ws','temp', 'Traffic')]
 # plot a full cormat using the original order of data
 # using pearson's correlation
 rquery.cormat(df2, type="full", order = "original")
+
+  # e. Pairplot at consistent time (12pm)
+# Plotting scatter, distribution and correlation 
+# collect 12pm time subset
+df11 <- df1[df1$Time=='12:00:00',]
+# separate into pollutants with NO2
+df2 <- df11[c('NO2','NO','NOXasNO2','O3','PM10','PM2.5','SO2')]
+# and meteorological & traffic with NO2
+df3 <- df11[c('NO2','ws','temp', 'Traffic', 'msl', 'wd')]
+# plot with line of best fit on lower scatter figure
+ggpairs(df2, lower=list(continuous=wrap("smooth", size=0.5, color="cornflowerblue")))
+ggpairs(df3, lower=list(continuous=wrap("smooth", size=0.5, color="mediumpurple")))
+
+
