@@ -128,7 +128,7 @@ ac_nov <- acf(df_nov$NO2, na.action = na.pass, lag=96, main='November', pl=FALSE
 # plot 24 hour lag (1 day)
 pacf(df1$NO2, na.action = na.pass, lag=24, main='Partial Autocorrelation', pl=TRUE) 
 
-
+"""
   # b. Boxplot
 # Using boxplot
 # NO2 #
@@ -148,6 +148,23 @@ boxplot(df1$ws ~ reorder(format(df1$Date,'%b %y'),df1$Date),
 # BY month
 boxplot(df1$temp ~ reorder(format(df1$Date,'%b %y'),df1$Date), 
         outline = FALSE, col='darkorange') 
+
+############## OR ###############
+# BY time of day #
+par(mfrow=c(1,2))
+# NO2 
+boxplot(df1$NO2 ~ reorder(format(df1$Time),df1$Time), 
+        outline = FALSE, col='lightblue',
+        xlab="Time of Day",
+        ylab="Concentration ug/m3",
+        main = "NO2")
+# traffic
+boxplot(df1$Traffic ~ reorder(format(df1$Time),df1$Time), 
+        outline = FALSE, col='darkorange',
+        xlab="Time of Day",
+        ylab="Traffic Volume",
+        main="Traffic") 
+"""
 
   # c. NO2 Polar Frequency plot
 # Plot wind speed and direction using PolarFreq from Openair library
