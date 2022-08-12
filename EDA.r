@@ -128,7 +128,7 @@ ac_nov <- acf(df_nov$NO2, na.action = na.pass, lag=96, main='November', pl=FALSE
 # plot 24 hour lag (1 day)
 pacf(df1$NO2, na.action = na.pass, lag=24, main='Partial Autocorrelation', pl=TRUE) 
 
-"""
+""" REVIEWWWWWWWWWWWW
   # b. Boxplot
 # Using boxplot
 # NO2 #
@@ -162,6 +162,19 @@ boxplot(df1$NO2 ~ reorder(format(df1$Time),df1$Time),
 boxplot(df1$Traffic ~ reorder(format(df1$Time),df1$Time), 
         outline = FALSE, col='darkorange',
         xlab="Time of Day",
+        ylab="Traffic Volume",
+        main="Traffic") 
+# Plot together
+par(mfrow=c(1,2))
+# BY DayofWeek # 
+boxplot(df1$NO2 ~ reorder(format(df1$dayofweek),df1$dayofweek), 
+        outline = FALSE, col='lightblue3',
+        xlab="Encoded Day of Week",
+        ylab="Concentration ug/m3",
+        main="NO2") 
+boxplot(df1$Traffic ~ reorder(format(df1$dayofweek),df1$dayofweek), 
+        outline = FALSE, col='darkorange2',
+        xlab="Encoded Day of Week",
         ylab="Traffic Volume",
         main="Traffic") 
 """
