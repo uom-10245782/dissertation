@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Aug 26 14:14:00 2022
-
-@author: oliviadavidson
-"""
-
 # Model > Analyse Quantiative
 # conda install -c conda-forge mlxtend
 from mlxtend.evaluate import bias_variance_decomp
