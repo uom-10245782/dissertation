@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Aug 25 15:23:02 2022
-
-@author: oliviadavidson
-"""
 # Conda
 # conda install -c conda-forge xgboost
 # Import necessary packages
