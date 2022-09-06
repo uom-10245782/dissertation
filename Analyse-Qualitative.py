@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Aug 30 13:07:18 2022
-
-@author: oliviadavidson
-"""
-
 # Plot timeseries
 import matplotlib.dates as mdates
 for timestep in timeseriesplot:
