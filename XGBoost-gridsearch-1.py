@@ -62,19 +62,19 @@ pg = {
     'n_estimators': [100, 200, 300, 400, 500],
     'gamma':[0.1,0.2,0.3,0.4]}
 
-
+# Grid Search 1
 grid_search = GridSearchCV(model, param_grid=pg,  
                            n_jobs=-1, cv=splits, verbose=2)
 start = time.time()
 grid_result = grid_search.fit(x_train, y_train)
 end = time.time()
- 
+# Print information
 print(end - start)
 print("Best: %f using %s" % (grid_result.best_score_, grid_result.best_params_))
 means = grid_result.cv_results_['mean_test_score']
 stds = grid_result.cv_results_['std_test_score']
 params = grid_result.cv_results_['params']
-
+# Obtain results
 results = pd.DataFrame(grid_result.cv_results_)
 results.to_csv('xgb-random-grid-search-results-01.csv', index=True)
 
