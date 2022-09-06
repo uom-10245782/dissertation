@@ -1,15 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Aug 24 15:21:02 2022
-
-@author: oliviadavidson
-
-VERSION 6:
-    REDUCED COLUMNS
-    DONT DROP NA 
-"""
-
 # conda install -c conda-forge metpy
 # Import packages
 # Metpy
